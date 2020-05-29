@@ -1,0 +1,7 @@
+{
+  "name": "pushNotifApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
