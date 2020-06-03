@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "821206276866",
+    "firebase_url": "https://taskspur-40cf0.firebaseio.com",
+    "project_id": "taskspur-40cf0",
+    "storage_bucket": "taskspur-40cf0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821206276866:android:9f63a4e315239b925a401b",
+        "android_client_info": {
+          "package_name": "com.ionic.starterpush"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "821206276866-dcucej0duthstso8pg5nqo9l8lii1nad.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6_Ppqrn75nooNmbqeNRYzQmdbsFee6iQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "821206276866-dcucej0duthstso8pg5nqo9l8lii1nad.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Firebase
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Firebase</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="ion-padding">
+    <!-- <ion-button expand="block" color="danger"
+      >Send Push Notification</ion-button
+    >
+    <ion-button expand="block" color="danger"
+      >Send Local Notification</ion-button
+    > -->
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-textarea
+        placeholder="FCM Registration token displays here..."
+        [(ngModel)]="fcmToken"
+      ></ion-textarea>
+    </ion-item>
+    <div class="ion-padding">
+      <ion-button
+        expand="block"
+        color="primary"
+        (click)="subscribeNotification()"
+        >Subscribe Firebase Notification</ion-button
+      >
+      <ion-button expand="block" color="primary" (click)="copyToken()"
+        >Copy Token</ion-button
+      >
+    </div>
+  </ion-list>
+</ion-content>
