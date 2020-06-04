@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Platform, NavController } from '@ionic/angular';
-
+import { NavController } from '@ionic/angular';
+import { catchError, map } from 'rxjs/operators';
 import { NotificationsService } from './../../services/notifications.service';
-
-import {
-  Plugins,
-  PushNotification,
-  PushNotificationActionPerformed,
-} from '@capacitor/core';
+import { of } from 'rxjs';
 
 @Component({
   templateUrl: './notifications.page.html',
@@ -23,12 +18,40 @@ export class NotificationsPage implements OnInit {
     this.notifications.onNotificationChange().subscribe((notification: any) => {
       console.log('NotificationsPage notifications: ', notification);
       if (notification) {
-        this.notificationsArr = notification;
+        this.notificationsArr.unshift(notification);
       }
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  doRefresh(ev: any) {
+    this.loadUsers();
+    setTimeout(() => {
+      if (ev && ev.target) {
+        ev.target.complete();
+      }
+    }, 2000);
+  }
+
+  loadUsers() {
+    const deviceInfo = this.notifications.getDeviceInfo();
+    if (deviceInfo) {
+      this.notifications
+        .deviceNotifications(deviceInfo.uuid)
+        .pipe(
+          map((res) => res.data),
+          catchError(() => of([]))
+        )
+        .subscribe((res) => {
+          if (res) {
+            this.notificationsArr = res;
+          }
+        });
+    }
+  }
 
   gotoDetails(notification: any) {
     this.navCtrl.navigateForward('/main/details', {

@@ -55,8 +55,18 @@ export class AppComponent {
             this.gotoDetails(notification);
           }
         );
+
+        this.getDeviceInfo();
       }
     });
+  }
+
+  async getDeviceInfo() {
+    const info = await Plugins.Device.getInfo();
+    console.log('Device: ', info);
+    if (info) {
+      this.notifications.setDeviceInfo(info);
+    }
   }
 
   gotoDetails(notification: any) {

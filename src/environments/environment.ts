@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  hubName: 'taskspur-notification-dev',
-  hubConnectionString: '',
+  apiUrl: 'https://push-notif-api.herokuapp.com',
 };
 
 /*

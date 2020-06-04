@@ -20,7 +20,7 @@ export class TabPagesPage implements OnInit {
     private platform: Platform,
     private notifications: NotificationsService
   ) {
-    this.notifications.onNotificationChange().subscribe((notification: any) => {
+    this.notifications.onNotificationListChange().subscribe((notification: any) => {
       console.log('TabPagesPage notifications: ', notification);
       if (notification) {
         this.zone.run(() => {
